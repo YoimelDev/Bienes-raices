@@ -13,7 +13,7 @@
 	@include tablet {
 		display: flex;
 		align-items: center;
-		gap: 2rem;
+		gap: 2.5rem;
 	}
 
 	a {
@@ -22,5 +22,10 @@
 		font-size: 1.8rem;
 		display: block;
 		text-align: center;
+		transition: all 0.5s ease-in-out;
+
+		&:hover {
+			color: $verde;
+		}
 	}
 }
