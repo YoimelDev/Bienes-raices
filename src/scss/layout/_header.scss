@@ -14,11 +14,21 @@
 		background-size: cover;
 
 		@include tablet {
+			height: 100vh;
+		}
+
+		@include maxDesktop {
+			height: 0;
 			min-height: 70rem;
 		}
 
 		.contenido-header {
 			@include tablet {
+				height: 100vh;
+			}
+
+			@include maxDesktop {
+				height: 0;
 				min-height: 70rem;
 			}
 		}
