@@ -16,13 +16,33 @@
 	.anuncio {
 		background-color: $grisOscuro;
 		border: 1px solid $grisOscuro;
+	}
 
-		.precio {
-			color: $verde;
-		}
+	.precio {
+		color: $verde;
 	}
 
 	.iconos-caracteristicas img {
 		filter: invert(100%);
+	}
+
+	.texto-nosotros blockquote {
+		color: $blanco;
+	}
+
+	.formulario {
+		label,
+		legend,
+		p {
+			color: $gris;
+		}
+
+		input:not([type='submit']),
+		textarea,
+		select {
+			background-color: $grisOscuro;
+			color: $blanco;
+			border: 1px solid $grisOscuro;
+		}
 	}
 }
