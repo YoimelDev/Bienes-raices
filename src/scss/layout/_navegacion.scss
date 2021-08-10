@@ -11,12 +11,15 @@
 }
 
 .navegacion {
-	display: none;
+	overflow: hidden;
+	height: 0;
+	transition: all 0.3s ease-in-out;
 
 	@include tablet {
 		display: flex;
 		align-items: center;
 		gap: 2.5rem;
+		height: inherit;
 	}
 
 	a {
@@ -42,4 +45,8 @@
 	img {
 		width: 5rem;
 	}
+}
+
+.mostrar {
+	height: 12.8rem;
 }
