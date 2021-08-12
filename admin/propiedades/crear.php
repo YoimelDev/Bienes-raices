@@ -97,8 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Subir la imagen
         move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
-        exit;
-
 
         // Insertar en la base de datos
         $query = "INSERT INTO propiedades (titulo, precio, imagen,descripcion, habitaciones, wc, estacionamiento, creado, vendedorId) VALUES ('$titulo', '$precio', '$nombreImagen','$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId')";
