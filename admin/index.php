@@ -1,6 +1,19 @@
 <?php
 
+// Importar la conexion
+require '../includes/config/database.php';
+$db = conectarDB();
+
+// Escribir el query
+$query = "SELECT * FROM propiedades";
+
+// Consultar l BD
+$consulta = mysqli_query($db, $query);
+
+// Muestra mensaje condicional
 $resultado = $_GET['resultado'] ?? null;
+
+// Incluye un template
 require '../includes/funciones.php';
 includerTemplate('header');
 ?>
@@ -25,18 +38,26 @@ includerTemplate('header');
         </thead>
 
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Casa en la playa</td>
-                <td> <img src="/src/img/anuncio1.jpg" class="imagen-tabla"></td>
-                <td>$450000</td>
-                <td>
-                    <a href="#" class="boton-rojo-block">Eliminar</a>
-                    <a href="#" class="boton-amarillo-block">Actualizar</a>
-                </td>
-            </tr>
+            <!-- Mostrar los resultados -->
+            <?php while ($propiedad = mysqli_fetch_assoc($consulta)) : ?>
+                <tr>
+                    <td> <?php echo $propiedad['id']; ?> </td>
+                    <td> <?php echo $propiedad['titulo']; ?> </td>
+                    <td> <img src="/src/img/<?php echo $propiedad['imagen']; ?> " class="imagen-tabla"></td>
+                    <td>$ <?php echo $propiedad['precio']; ?> </td>
+                    <td>
+                        <a href="#" class="boton-rojo-block">Eliminar</a>
+                        <a href="#" class="boton-amarillo-block">Actualizar</a>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
         </tbody>
     </table>
 </main>
 
-<?php includerTemplate('footer'); ?>
+<?php
+// Cerrar la conexion
+mysqli_close($db);
+
+includerTemplate('footer');
+?>
