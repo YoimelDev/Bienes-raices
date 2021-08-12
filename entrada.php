@@ -1,4 +1,7 @@
-<?php include 'includes/templates/header.php' ?>
+<?php
+require 'includes/funciones.php';
+includerTemplate('header');
+?>
 
 <main class="contenedor seccion contenido-centrado">
 	<h2>Consejo para tener una alberca en tu casa sin gastar demasiado</h2>
@@ -23,4 +26,4 @@
 	</div>
 </main>
 
-<?php include 'includes/templates/footer.php' ?>
+<?php includerTemplate('footer'); ?>
