@@ -7,6 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<pre>";
     var_dump($_POST);
     echo "</pre>";
+
+    $titulo = $_POST['titulo'];
+    $precio = $_POST['precio'];
+    $descripcion = $_POST['descripcion'];
+    $habitaciones = $_POST['habitaciones'];
+    $wc = $_POST['wc'];
+    $estacionamiento = $_POST['estacionamiento'];
+    $vendedor = $_POST['vendedor'];
 }
 
 
