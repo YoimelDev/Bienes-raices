@@ -4,7 +4,7 @@ includerTemplate('header');
 ?>
 
 <main class="contenedor seccion">
-    <h2>Base - Titulo Pagina</h2>
+    <h1>Crear</h1>
 </main>
 
 <?php includerTemplate('footer'); ?>
