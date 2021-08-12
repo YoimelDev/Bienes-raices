@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estacionamiento = mysqli_real_escape_string($db, $_POST['estacionamiento']);
     $vendedorId = mysqli_real_escape_string($db, $_POST['vendedor']);
     $creado = date('Y/m/d');
+    $imagen = $_FILES['imagen'];
 
     if (!$titulo) {
         $errores[] = 'Debes añadir un titulo';
@@ -63,6 +64,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$vendedorId) {
         $errores[] = 'Elige un vendedor';
+    }
+
+    if (!$imagen['name'] || $imagen['error']) {
+        $errores[] = 'La imagen es Obligatoria';
+    }
+
+    // Validar por tamaño (100Kb Maximo)
+    $medida = 1000 * 100;
+
+    if ($Imagen['size'] > $medida) {
+        $errores[] = 'La imagen es muy pesada';
     }
 
     // echo "<pre>";
