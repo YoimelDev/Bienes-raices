@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Validar por tamaño (100Kb Maximo)
-    $medida = 1000 * 100;
+    $medida = 40000 * 100;
 
-    if ($Imagen['size'] > $medida) {
+    if ($imagen['size'] > $medida) {
         $errores[] = 'La imagen es muy pesada';
     }
 
