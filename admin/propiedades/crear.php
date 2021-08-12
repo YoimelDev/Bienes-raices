@@ -4,9 +4,9 @@ require '../../includes/config/database.php';
 $db = conectarDB();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo "<pre>";
-    var_dump($_POST);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($_POST);
+    // echo "</pre>";
 
     $titulo = $_POST['titulo'];
     $precio = $_POST['precio'];
@@ -14,7 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $habitaciones = $_POST['habitaciones'];
     $wc = $_POST['wc'];
     $estacionamiento = $_POST['estacionamiento'];
-    $vendedor = $_POST['vendedor'];
+    $vendedorId = $_POST['vendedor'];
+
+    // Insertar en la base de datos
+    $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedorId) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedorId')";
+
+    // echo $query;
+
+    $resultado = mysqli_query($db, $query);
+
+    if ($resultado) {
+        echo 'Insertado correctamente';
+    }
 }
 
 
@@ -61,7 +72,7 @@ includerTemplate('header');
             <legend>Vendedor</legend>
 
             <select name="vendedor">
-                <option value="1">Juan</option>
+                <option value="1">Yoimel</option>
                 <option value="2">Karen</option>
             </select>
         </fieldset>
