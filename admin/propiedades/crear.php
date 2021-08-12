@@ -1,9 +1,14 @@
 <?php
 // Base de datos
-
 require '../../includes/config/database.php';
-
 $db = conectarDB();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "<pre>";
+    var_dump($_POST);
+    echo "</pre>";
+}
+
 
 require '../../includes/funciones.php';
 includerTemplate('header');
@@ -14,40 +19,40 @@ includerTemplate('header');
 
     <a href="/admin" class="boton boton-verde">Volver</a>
 
-    <form class="formulario">
+    <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
         <fieldset>
             <legend>Informacion General</legend>
 
             <label for="titulo">Titulo:</label>
-            <input id="titulo" type="text" placeholder="Titulo Propiedad">
+            <input id="titulo" name="titulo" type="text" placeholder="Titulo Propiedad">
 
             <label for="precio">Precio:</label>
-            <input id="precio" type="number" placeholder="Precio Propiedad">
+            <input id="precio" name="precio" type="number" placeholder="Precio Propiedad">
 
             <label for="imagen">Imagen:</label>
             <input id="imagen" type="file" accept="image/jpeg, image/png">
 
             <label for="descripcion">Descripcion</label>
-            <textarea id="descripcion"></textarea>
+            <textarea id="descripcion" name="descripcion"></textarea>
         </fieldset>
 
         <fieldset>
             <legend>Informacion Propiedad</legend>
 
             <label for="habitaciones">Habitaciones:</label>
-            <input id="habitaciones" type="number" placeholder="Ej: 3" min="1" max="9">
+            <input id="habitaciones" name="habitaciones" type="number" placeholder="Ej: 3" min="1" max="9">
 
             <label for="wc">Baños:</label>
-            <input id="wc" type="number" placeholder="Ej: 3" min="1" max="9">
+            <input id="wc" name="wc" type="number" placeholder="Ej: 3" min="1" max="9">
 
             <label for="estacionamiento">Estacionamiento:</label>
-            <input id="estacionamiento" type="number" placeholder="Ej: 3" min="1" max="9">
+            <input id="estacionamiento" name="estacionamiento" type="number" placeholder="Ej: 3" min="1" max="9">
         </fieldset>
 
         <fieldset>
             <legend>Vendedor</legend>
 
-            <select>
+            <select name="vendedor">
                 <option value="1">Juan</option>
                 <option value="2">Karen</option>
             </select>
