@@ -29,6 +29,14 @@ table.propiedades {
         }
     }
 
+    tbody {
+        background-color: $gris;        
+        td {
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+
     .imagen-tabla {
         width: 10rem;
     }

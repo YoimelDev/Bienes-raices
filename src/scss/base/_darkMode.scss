@@ -46,7 +46,8 @@
 		}
 	}
 
-	tbody {
+	table.propiedades tbody {
+		background-color: $grisOscuro;
 		td {
 			color: $blanco;
 		}
