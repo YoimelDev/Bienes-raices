@@ -3,6 +3,10 @@
 require '../../includes/config/database.php';
 $db = conectarDB();
 
+// Array con mensajes de errores
+$errores = [];
+
+// Ejecutar el codigo despues de que el usuario envia el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // echo "<pre>";
     // var_dump($_POST);
@@ -15,6 +19,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $wc = $_POST['wc'];
     $estacionamiento = $_POST['estacionamiento'];
     $vendedorId = $_POST['vendedor'];
+
+    if (!$titulo) {
+        $errores[] = 'Debes añadir un titulo';
+    }
+
+    if (!$precio) {
+        $errores[] = 'El precio es Obligatorio';
+    }
+
+    if (strlen($descripcion) < 50) {
+        $errores[] = 'La descripcion es obligatoria y debe tener al menos 50 caracteres';
+    }
+
+    if (!$habitaciones) {
+        $errores[] = 'El numero de habitaciones es obligatorio';
+    }
+
+    if (!$wc) {
+        $errores[] = 'El numero de baños es obligatorio';
+    }
+
+    if (!$estacionamiento) {
+        $errores[] = 'El numero de lugares de estacionamientos es obligatorio';
+    }
+
+    if (!$vendedorId) {
+        $errores[] = 'Elige un vendedor';
+    }
+
+    // echo "<pre>";
+    // var_dump($errores);
+    // echo "</pre>"; 
 
     // Insertar en la base de datos
     $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedorId) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedorId')";
@@ -72,6 +108,7 @@ includerTemplate('header');
             <legend>Vendedor</legend>
 
             <select name="vendedor">
+                <option value="">--Seleccione--</option>
                 <option value="1">Yoimel</option>
                 <option value="2">Karen</option>
             </select>
