@@ -50,5 +50,5 @@ $resultado = mysqli_query($db, $query);
 
 <?php
 // Cerrar la conexion
-
+mysqli_close($db);
 ?>
