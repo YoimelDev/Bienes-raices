@@ -47,7 +47,7 @@ includerTemplate('header');
                     <td>$ <?php echo $propiedad['precio']; ?> </td>
                     <td>
                         <a href="#" class="boton-rojo-block">Eliminar</a>
-                        <a href="admin/propiedades/actualizar.php" class="boton-amarillo-block">Actualizar</a>
+                        <a href="admin/propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">Actualizar</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
