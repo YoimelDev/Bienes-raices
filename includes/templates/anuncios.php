@@ -39,7 +39,7 @@ $resultado = mysqli_query($db, $query);
                     </li>
                 </ul>
 
-                <a class="boton-amarillo-block" href="anuncio.php">Ver Propiedad</a>
+                <a class="boton-amarillo-block" href="anuncio.php?id=<?php echo $propiedad['id']; ?>">Ver Propiedad</a>
             </div>
             <!-- Contenido-anuncio-->
         </div>
