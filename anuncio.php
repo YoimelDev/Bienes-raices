@@ -1,42 +1,63 @@
 <?php
+
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if (!$id) {
+	header('Location: /');
+}
+
+// Base de datos
+require 'includes/config/database.php';
+$db = conectarDB();
+
+// Obtener los datos de la propiedad
+$consulta = "SELECT * FROM propiedades WHERE id = ${id}";
+$resultado = mysqli_query($db, $consulta);
+
+if ($resultado->num_rows === 0) {
+	header('location: /');
+}
+
+$propiedad = mysqli_fetch_assoc($resultado);
+
 require 'includes/funciones.php';
 includerTemplate('header');
 ?>
 
 <main class="contenedor seccion contenido-centrado">
-	<h2>Casa en Venta frente al bosque</h2>
+	<h2><?php echo $propiedad['titulo']; ?></h2>
 
-	<picture>
-		<source srcset="build/img/destacada.webp" type="image/webp" />
-		<source srcset="build/img/destacada.jpg" type="image/jpeg" />
-		<img loading="lazy" src="build/img/destacada.jpg" alt="Imagen de la propiedad" />
-	</picture>
+
+	<img loading="lazy" src="/imagenes/<?php echo $propiedad['imagen']; ?>" alt="Imagen de la propiedad" />
+
 
 	<div class="resumen-propiedad">
-		<p class="precio">$3.000.000</p>
+		<p class="precio">$<?php echo $propiedad['precio']; ?></p>
 
 		<ul class="iconos-caracteristicas">
 			<li>
 				<img loading="lazy" src="build/img/icono_wc.svg" alt="icono wc" />
-				<p>3</p>
+				<p><?php echo $propiedad['wc']; ?></p>
 			</li>
 			<li>
 				<img loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento" />
-				<p>3</p>
+				<p><?php echo $propiedad['estacionamiento']; ?></p>
 			</li>
 			<li>
 				<img loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones" />
-				<p>4</p>
+				<p><?php echo $propiedad['habitaciones']; ?></p>
 			</li>
 		</ul>
 
 		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. At enim doloribus voluptates sunt error molestias nesciunt beatae nam, debitis
-			deserunt consequatur ipsam dolore totam, aut consequuntur eos! Laudantium, corrupti accusantium. Lorem, ipsum dolor sit amet consectetur
-			adipisicing elit. Optio ducimus ipsum exercitationem non nemo? Perspiciatis ipsam veritatis consequatur recusandae voluptates, quaerat nam
-			delectus ipsum ab labore dolore accusamus eum voluptatem?
+			<?php echo $propiedad['descripcion']; ?>
 		</p>
 	</div>
 </main>
 
-<?php includerTemplate('footer'); ?>
+<?php
+mysqli_close($db);
+
+includerTemplate('footer');
+?>
