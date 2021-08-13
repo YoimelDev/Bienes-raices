@@ -1,4 +1,13 @@
 <?php
+
+// Validar la URL por id valido
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if (!$id) {
+    header('Location: /admin');
+}
+
 // Base de datos
 require '../../includes/config/database.php';
 $db = conectarDB();
