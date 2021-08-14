@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // LLenar el array de la sesion
                 $_SESSION['usuario'] = $usuario['email'];
                 $_SESSION['login'] = true;
+
+                header('location: /admin');
             } else {
                 $errores[] = "Password es incorrecto";
             }
