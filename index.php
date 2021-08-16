@@ -3,6 +3,8 @@ require 'includes/funciones.php';
 includerTemplate('header', $inicio = true);
 ?>
 
+<!-- Agregar POO -->
+
 <main class="contenedor seccion">
 	<h2>Mas Sobre Nosotros</h2>
 
