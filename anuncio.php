@@ -7,8 +7,7 @@ if (!$id) {
 	header('Location: /');
 }
 
-// Base de datos
-require 'includes/config/database.php';
+require 'includes/app.php';
 $db = conectarDB();
 
 // Obtener los datos de la propiedad
@@ -21,7 +20,6 @@ if ($resultado->num_rows === 0) {
 
 $propiedad = mysqli_fetch_assoc($resultado);
 
-require 'includes/funciones.php';
 includerTemplate('header');
 ?>
 
