@@ -13,7 +13,9 @@
             "email": "yoimeldev@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "intervention/image": "^2.6"
+    },
     "autoload": {
         "psr-4": {
             "App\\" : "./classes"
