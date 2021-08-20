@@ -1,10 +1,6 @@
 <?php
 require '../../includes/funciones.php';
-$auth = estaAutenticado();
-
-if (!$auth) {
-    header('location: /');
-}
+estaAutenticado();
 
 // Validar la URL por id valido
 $id = $_GET['id'];
