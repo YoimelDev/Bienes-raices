@@ -39,7 +39,7 @@ class Propiedad
         $this->wc = $args['wc'] ?? '';
         $this->estacionamiento = $args['estacionamiento'] ?? '';
         $this->creado = date('Y/m/d');
-        $this->vendedorId = $args['vendedorId'] ?? '';
+        $this->vendedorId = $args['vendedorId'] ?? '1';
     }
 
     public function guardar()
@@ -85,9 +85,10 @@ class Propiedad
     }
 
     // Subida de archivos
-    public function setImagen($imagen) {
+    public function setImagen($imagen)
+    {
         // Asignar al atributo de imagen el nombre de la imagen
-        if($imagen) {
+        if ($imagen) {
             $this->imagen = $imagen;
         }
     }
@@ -132,7 +133,47 @@ class Propiedad
         if (!$this->imagen) {
             self::$errores[] = 'La imagen es Obligatoria';
         }
-        
+
         return self::$errores;
+    }
+
+    // Listar todas las propiedades
+    public static function all()
+    {
+        $query = "SELECT * FROM propiedades";
+        $resultado = self::consultarSQL($query);
+
+        return $resultado;
+    }
+
+    public static function consultarSQL($query)
+    {
+        // Consultar la base de datos
+        $resultado = self::$db->query($query);
+
+        // Iterar los resultados
+        $array = [];
+        while ($registro = $resultado->fetch_assoc()) {
+            $array[] = self::crearObjeto($registro);
+        }
+
+        // Liberar la memoria
+        $resultado->free();
+
+        // Retornar los resultados
+        return $array;
+    }
+
+    protected static function crearObjeto($registro)
+    {
+        $objeto = new self;
+
+        foreach ($registro as $key => $value) {
+            if (property_exists($objeto, $key)) {
+                $objeto->$key = $value;
+            }
+        }
+
+        return $objeto;
     }
 }
