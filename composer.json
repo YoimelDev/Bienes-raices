@@ -1,0 +1,22 @@
+{
+    "name": "yoimel/bienes-raices",
+    "description": "Creando un proyecto con POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Yoimel\\BienesRaices\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yoimel Rojas",
+            "email": "yoimeldev@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./classes"
+        }
+    }
+}
