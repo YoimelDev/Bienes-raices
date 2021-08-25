@@ -1,5 +1,8 @@
 <?php
-require '../../includes/funciones.php';
+
+use App\Propiedad;
+
+require '../../includes/app.php';
 estaAutenticado();
 
 // Validar la URL por id valido
@@ -10,19 +13,8 @@ if (!$id) {
     header('Location: /admin');
 }
 
-// Base de datos
-require '../../includes/config/database.php';
-$db = conectarDB();
-
 // Obtener los datos de la propiedad
-$consulta = "SELECT * FROM propiedades WHERE id = ${id}";
-$resultado = mysqli_query($db, $consulta);
-$propiedad = mysqli_fetch_assoc($resultado);
-
-// echo "<pre>";
-// var_dump($propiedad);
-// echo "</pre>";
-
+$propiedad = Propiedad::find($id);
 
 // Consultar para obtener los vendedores
 $consulta = "SELECT * FROM vendedores";
@@ -30,15 +22,6 @@ $resultado = mysqli_query($db, $consulta);
 
 // Array con mensajes de errores
 $errores = [];
-
-$titulo = $propiedad['titulo'];
-$precio = $propiedad['precio'];
-$descripcion = $propiedad['descripcion'];
-$habitaciones = $propiedad['habitaciones'];
-$wc = $propiedad['wc'];
-$estacionamiento = $propiedad['estacionamiento'];
-$vendedorId = $propiedad['vendedorId'];
-$imagenPropiedad = $propiedad['imagen'];
 
 // Ejecutar el codigo despues de que el usuario envia el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
