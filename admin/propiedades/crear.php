@@ -24,8 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Crea una nueva instancia
     $propiedad = new Propiedad($_POST['propiedad']);
 
-
-
     // Generar un nombre unico
     $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
 
@@ -50,17 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $image->save(CARPETA_IMAGENES . $nombreImagen);
 
         // Guarda en la base de datos
-        $resultado = $propiedad->guardar();
-
-        // Mensaje de Exito
-        if ($resultado) {
-            // Redireccionar al usuario
-            header('Location: /admin?resultado=1');
-        }
+        $propiedad->guardar();
     }
 }
-
-
 
 includerTemplate('header');
 ?>

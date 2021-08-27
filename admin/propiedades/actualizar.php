@@ -34,8 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errores = $propiedad->validar();
 
-
-
     // Subida de archivos
     $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
     if ($_FILES['propiedad']['tmp_name']['imagen']) {
@@ -46,9 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Revisar que el array de errores este vacio
     if (empty($errores)) {
         // Almacenar la imagen
-        $image->save(CARPETA_IMAGENES . $nombreImagen);
+        if ($image) {
+            $image->save(CARPETA_IMAGENES . $nombreImagen);
+        }
 
-        $resultado = $propiedad->guardar();
+        $propiedad->guardar();
     }
 }
 
