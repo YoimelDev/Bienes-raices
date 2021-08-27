@@ -8,6 +8,6 @@
     <input id="apellido" name="vendedor[apellido]" type="text" placeholder="Apellido Vendedor(a)" value="<?php echo s($vendedor->apellido); ?>">
 
     <label for="telefono">Telefono:</label>
-    <input id="telefono" name="vendedor[telefono]" type="text" placeholder="Telefono Vendedor(a)" value="<?php echo s($vendedor->telefono); ?>">
+    <input id="telefono" name="vendedor[telefono]" type="tel" placeholder="Telefono Vendedor(a)" value="<?php echo s($vendedor->telefono); ?>">
 
 </fieldset>
