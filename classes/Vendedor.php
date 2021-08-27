@@ -32,7 +32,7 @@ class Vendedor extends ActiveRecord
         if (!$this->telefono) {
             self::$errores[] = 'El Telefono es obligatorio';
         }
-        if (!preg_match('/[0-9]{10} /', $this->telefono)) {
+        if (!preg_match('/[0-9]{10}/', $this->telefono)) {
             self::$errores[] = 'Formato no valido';
         }
 
