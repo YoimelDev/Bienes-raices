@@ -2,6 +2,7 @@
 require '../includes/app.php';
 estaAutenticado();
 
+// Importar clases
 use App\Propiedad;
 use App\Vendedor;
 
@@ -13,6 +14,8 @@ $vendedores = Vendedor::all();
 $resultado = $_GET['resultado'] ?? null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Validar Id
     $id = $_POST['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
 
@@ -43,7 +46,7 @@ includerTemplate('header');
     <?php
     $mensaje = mostrarNotificacion(intval($resultado));
     if ($mensaje) : ?>
-        <p class="alerta exito"><?php ?></p>
+        <p class="alerta exito"><?php echo s($mensaje); ?></p>
     <?php endif; ?>
 
     <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
