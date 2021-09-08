@@ -29,4 +29,10 @@ class Router
             echo "Pagina No Encontrada";
         }
     }
+
+    // Muestra una vista
+    public function render($view)
+    {
+        include __DIR__ . "/views/$view.php";
+    }
 }
