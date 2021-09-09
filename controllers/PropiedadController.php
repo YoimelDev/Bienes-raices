@@ -24,6 +24,10 @@ class PropiedadController
         $propiedades = new Propiedad;
         $vendedores = Vendedor::all();
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            debuguear($_POST);
+        }
+
         $router->render('propiedades/crear', [
             'propiedad' => $propiedades,
             'vendedores' => $vendedores
