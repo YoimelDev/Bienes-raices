@@ -19,7 +19,7 @@ if (!isset($inicio)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bienes Raices</title>
-    <link rel="stylesheet" href="./build/css/app.css" />
+    <link rel="stylesheet" href="/build/css/app.css" />
 </head>
 
 <body>
@@ -27,11 +27,11 @@ if (!isset($inicio)) {
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="/">
-                    <img src="./build/img/logo.svg" alt="logo de Bienes Raices" />
+                    <img src="/build/img/logo.svg" alt="logo de Bienes Raices" />
                 </a>
 
                 <div class="mobile-menu">
-                    <img src="./build/img/barras.svg" alt="Icono menu responsive" />
+                    <img src="/build/img/barras.svg" alt="Icono menu responsive" />
                 </div>
 
                 <div class="derecha">
@@ -45,7 +45,7 @@ if (!isset($inicio)) {
                         <?php endif; ?>
                     </nav>
 
-                    <img class="dark-mode-boton" src="./build/img/dark-mode.svg" alt="Dark mode boton" />
+                    <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="Dark mode boton" />
                 </div>
             </div>
             <!-- .barra -->
@@ -69,7 +69,7 @@ if (!isset($inicio)) {
         <p class="copyright">Todos los Derechos Reservados <?php echo date('Y'); ?> &copy;</p>
     </footer>
 
-    <script src="./build/js/bundle.min.js"></script>
+    <script src="/build/js/bundle.min.js"></script>
 </body>
 
 </html>
