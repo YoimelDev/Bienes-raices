@@ -12,7 +12,7 @@
     ?>
 
     <div class="aling-right">
-        <a class="boton-verde" href="anuncios">Ver Todas</a>
+        <a class="boton-verde" href="/propiedades">Ver Todas</a>
     </div>
 </section>
 

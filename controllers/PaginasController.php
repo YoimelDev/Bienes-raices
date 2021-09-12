@@ -23,27 +23,39 @@ class PaginasController
         $router->render('paginas/nosotros');
     }
 
-    public static function propiedades()
+    public static function propiedades(Router $router)
     {
-        echo "propiedades";
+        $propiedades = Propiedad::all();
+
+        $router->render('paginas/propiedades', [
+            'propiedades' => $propiedades
+        ]);
     }
 
-    public static function propiedad()
+    public static function propiedad(Router $router)
     {
-        echo "propiedad";
+        $id = validarORedireccionar('/propiedades');
+
+        // Buscar la propiedaad por su id
+
+        $propiedad = Propiedad::find($id);
+
+        $router->render('paginas/propiedad', [
+            'propiedad' => $propiedad
+        ]);
     }
 
-    public static function blog()
+    public static function blog(Router $router)
     {
         echo "blog";
     }
 
-    public static function entrada()
+    public static function entrada(Router $router)
     {
         echo "entrada";
     }
 
-    public static function contacto()
+    public static function contacto(Router $router)
     {
         echo "contacto";
     }
