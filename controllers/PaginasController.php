@@ -47,7 +47,7 @@ class PaginasController
 
     public static function blog(Router $router)
     {
-        echo "blog";
+        $router->render('paginas/blog');
     }
 
     public static function entrada(Router $router)
