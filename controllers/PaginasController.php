@@ -52,7 +52,7 @@ class PaginasController
 
     public static function entrada(Router $router)
     {
-        echo "entrada";
+        $router->render('paginas/entrada');
     }
 
     public static function contacto(Router $router)
