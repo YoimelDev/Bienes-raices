@@ -57,6 +57,10 @@ class PaginasController
 
     public static function contacto(Router $router)
     {
-        echo "contacto";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            debuguear($_POST);
+        }
+
+        $router->render('paginas/contacto', []);
     }
 }
