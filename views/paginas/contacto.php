@@ -47,10 +47,10 @@
 
             <div class="forma-contacto">
                 <label for="contactar-telefono">Telefono</label>
-                <input id="contactar-telefono" type="radio" name="contacto" value="telefono" name="contacto[contacto]" required />
+                <input id="contactar-telefono" type="radio" value="telefono" name="contacto[contacto]" required />
 
                 <label for="contactar-email">E-mail</label>
-                <input id="contactar-email" type="radio" name="contacto" value="email" name="contacto[contacto]" required />
+                <input id="contactar-email" type="radio" value="email" name="contacto[contacto]" required />
             </div>
 
             <p>Si eligio telefono, elija la fecha y la hora</p>
