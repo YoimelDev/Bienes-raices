@@ -27,4 +27,4 @@
     </div>
 </div>
 
-<?php  ?>
+<?php $prueba = null ?>
