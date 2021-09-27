@@ -1,5 +1,5 @@
 const { src, dest, watch , parallel } = require('gulp');
-const sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('autoprefixer');
 const postcss    = require('gulp-postcss')
 const sourcemaps = require('gulp-sourcemaps')
@@ -26,7 +26,7 @@ function css() {
         .pipe(postcss([autoprefixer(), cssnano()]))
         // .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
-        .pipe( dest('./build/css') );
+        .pipe( dest('./public/build/css') );
 }
 
 
@@ -37,20 +37,20 @@ function javascript() {
       .pipe(terser())
       .pipe(sourcemaps.write('.'))
       .pipe(rename({ suffix: '.min' }))
-      .pipe(dest('./build/js'))
+      .pipe(dest('./public/build/js'))
 }
 
 function imagenes() {
     return src(paths.imagenes)
         .pipe(cache(imagemin({ optimizationLevel: 3})))
-        .pipe(dest('build/img'))
+        .pipe(dest('./public/build/img'))
         .pipe(notify({ message: 'Imagen Completada'}));
 }
 
 function versionWebp() {
     return src(paths.imagenes)
         .pipe( webp() )
-        .pipe(dest('build/img'))
+        .pipe(dest('./public/build/img'))
         .pipe(notify({ message: 'Imagen Completada'}));
 }
 
