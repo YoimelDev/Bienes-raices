@@ -20,3 +20,5 @@
         </p>
     </div>
 </main>
+
+<?php $prueba = null ?>

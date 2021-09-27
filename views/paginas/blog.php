@@ -81,3 +81,5 @@
         </div>
     </article>
 </main>
+
+<?php $prueba = null ?>
