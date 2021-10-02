@@ -1,5 +1,5 @@
 <main class="contenedor seccion contenido-centrado">
-    <h2><?php echo $propiedad->titulo; ?></h2>
+    <h2 data-cy="titulo-propiedad"><?php echo $propiedad->titulo; ?></h2>
 
 
     <img loading="lazy" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="Imagen de la propiedad" />

@@ -18,4 +18,20 @@ describe('Carga la pagina principal', () => {
         cy.get('[data-cy="iconos-nosotros"').find('.icono').should('have.length', 3)
         cy.get('[data-cy="iconos-nosotros"').find('.icono').should('not.have.length', 4)
     })
+
+    it('Prueba la seccion de propiedades', () => {
+        // Debe haber 3 propiedades
+        cy.get('[data-cy="anuncio"]').should('have.length', 3)
+        cy.get('[data-cy="anuncio"]').should('not.have.length', 6)
+
+        cy.get('[data-cy="enlace-propiedad"]').should('have.class', 'boton-amarillo-block')
+
+        cy.get('[data-cy="enlace-propiedad"]').first().invoke('text').should('equal', 'Ver Propiedad')
+
+        cy.get('[data-cy="enlace-propiedad"]').first().click()
+        cy.get('[data-cy="titulo-propiedad"]').should('exist')
+
+        cy.wait(1000)
+        cy.go('back')
+    })
 })
