@@ -1,5 +1,5 @@
 <main class="contenedor seccion">
-    <h2>Mas Sobre Nosotros</h2>
+    <h2 data-cy="heading-nosotros">Mas Sobre Nosotros</h2>
 
     <?php include 'iconos.php'; ?>
 </main>
