@@ -16,7 +16,7 @@
     </div>
 </section>
 
-<section class="imagen-contacto">
+<section data-cy="imagen-contacto" class="imagen-contacto">
     <h2>Encuentra la casa de tus sueños</h2>
     <p>LLena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad</p>
     <a class="boton-amarillo" href="contacto">Contactanos</a>

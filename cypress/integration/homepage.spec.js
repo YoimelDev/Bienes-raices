@@ -46,4 +46,20 @@ describe('Carga la pagina principal', () => {
         cy.wait(1000)
         cy.go('back')
     })
+
+    it('Prueba el boque de contacto', () => {
+        cy.get('[data-cy="imagen-contacto"]').should('exist')
+
+        cy.get('[data-cy="imagen-contacto"]').find('h2').invoke('text').should('equal', 'Encuentra la casa de tus sueños')
+        cy.get('[data-cy="imagen-contacto"]').find('p').invoke('text').should('equal', 'LLena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad')
+
+        cy.get('[data-cy="imagen-contacto"]').find('a').invoke('attr', 'href').then(href => {
+            cy.visit(href)
+        })
+
+        cy.get('[data-cy="heading-contacto"]').should('exist')
+
+        cy.wait(1000)
+        cy.visit('/')
+    })
 })
