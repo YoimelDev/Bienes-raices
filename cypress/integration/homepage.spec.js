@@ -31,7 +31,7 @@ describe('Carga la pagina principal', () => {
         cy.get('[data-cy="enlace-propiedad"]').first().click()
         cy.get('[data-cy="titulo-propiedad"]').should('exist')
 
-        cy.wait(1000)
+        // cy.wait(1000)
         cy.go('back')
     })
 
@@ -43,7 +43,7 @@ describe('Carga la pagina principal', () => {
         cy.get('[data-cy="todas-propiedades"]').click()
         cy.get('[data-cy="heading-propiedades"]').invoke('text').should('equal', 'Casas y Depas en Venta')
 
-        cy.wait(1000)
+        // cy.wait(1000)
         cy.go('back')
     })
 
@@ -59,7 +59,16 @@ describe('Carga la pagina principal', () => {
 
         cy.get('[data-cy="heading-contacto"]').should('exist')
 
-        cy.wait(1000)
+        // cy.wait(1000)
         cy.visit('/')
+    })
+
+    it('Prueba los testimoniales y el blog', () => {
+        cy.get('[data-cy="blog"]').should('exist')
+        cy.get('[data-cy="blog"]').find('h3').invoke('text').should('equal', 'Nuestro Blog')
+        cy.get('[data-cy="blog"]').find('img').should('have.length', 2)
+
+        cy.get('[data-cy="testimoniales"]').should('exist')
+        cy.get('[data-cy="testimoniales"]').find('h3').invoke('text').should('equal', 'testimoniales')
     })
 })
