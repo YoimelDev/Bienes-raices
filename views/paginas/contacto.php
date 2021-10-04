@@ -12,31 +12,31 @@
         <img loading="lazy" src="build/img/destacada3.jpg" alt="Imagen Contacto" />
     </picture>
 
-    <h2>LLene el formulario de Contacto</h2>
+    <h2 data-cy="heading-formulario">LLene el formulario de Contacto</h2>
 
     <form action="/contacto" method="POST" class="formulario">
         <fieldset>
             <legend>Informacion Personal</legend>
 
             <label for="nombre">Nombre</label>
-            <input id="nombre" type="text" placeholder="Tu Nombre" name="contacto[nombre]" required />
+            <input data-cy="input-nombre" id="nombre" type="text" placeholder="Tu Nombre" name="contacto[nombre]" required />
 
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="contacto[mensaje]" required></textarea>
+            <textarea data-cy="input-mensaje" id="mensaje" name="contacto[mensaje]" required></textarea>
         </fieldset>
 
         <fieldset>
             <legend>Informacion sobre la propiedad</legend>
 
             <label for="opciones">Vende o Compra</label>
-            <select id="opciones" name="contacto[tipo]" required>
+            <select data-cy="input-opciones" id="opciones" name="contacto[tipo]" required>
                 <option value="" disabled selected>-- Seleccione --</option>
                 <option value="Compra">Compra</option>
                 <option value="Vende">Vende</option>
             </select>
 
             <label for="presupuesto">Precio o Presupuesto</label>
-            <input id="presupuesto" type="number" placeholder="Tu Precio o Presupuesto" name="contacto[precio]" required />
+            <input data-cy="input-precio" id="presupuesto" type="number" placeholder="Tu Precio o Presupuesto" name="contacto[precio]" required />
         </fieldset>
 
         <fieldset>
@@ -46,10 +46,10 @@
 
             <div class="forma-contacto">
                 <label for="contactar-telefono">Telefono</label>
-                <input id="contactar-telefono" type="radio" value="telefono" name="contacto[contacto]" required />
+                <input data-cy="forma-contacto" id="contactar-telefono" type="radio" value="telefono" name="contacto[contacto]" required />
 
                 <label for="contactar-email">E-mail</label>
-                <input id="contactar-email" type="radio" value="email" name="contacto[contacto]" required />
+                <input data-cy="forma-contacto" id="contactar-email" type="radio" value="email" name="contacto[contacto]" required />
             </div>
 
             <div id="contacto"></div>
