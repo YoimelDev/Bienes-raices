@@ -9,21 +9,21 @@ Project where I put my skills into practice, where I use Gulp, SASS, NPM, JavaSc
 <details>
     <summary>🖥️ Desktop version</summary>
 
-![](build/img/desktop.webp)
+![](public/build/img/desktop.webp)
 
 </details>
 
 <details>
     <summary>🖥️ Admin</summary>
 
-![](build/img/admin.webp)
+![](public/build/img/admin.webp)
 
 </details>
 
 <details>
     <summary>📱 Mobile version</summary>
 
-![](build/img/mobile.webp)
+![](public/build/img/mobile.webp)
 
 </details>
 
